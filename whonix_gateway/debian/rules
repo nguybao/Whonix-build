@@ -1,0 +1,53 @@
+#!/usr/bin/make -f
+
+# This script uses debhelper by Joey Hess
+# export DH_VERBOSE=1
+
+
+
+build-arch: build
+build-indep: build
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+	# build package here
+	#$(MAKE) LOCAL_LDFLAGS=-g
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+
+	[ ! -f Makefile ] || $(MAKE) -i clean
+	
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs usr/bin
+
+	#Following is directory manipulation of makefile -- DO NOT EDIT
+	$(MAKE) -f Makefile.build install 
+
+binary-indep:	build install
+binary-arch:	build install
+	dh_testdir
+	dh_testroot
+	#dh_installdocs		CONTRIBUTORS
+	#dh_installman		fdupes.1
+	dh_installchangelogs	CHANGES
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary:	binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary
