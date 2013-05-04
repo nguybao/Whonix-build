@@ -1,0 +1,15 @@
+Source: whonix-gateway
+Section: main
+Priority: required
+Maintainer: adrelanos <adrelanos at riseup dot net>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.3
+Homepage: http://whonix.sourceforge.net/
+Vcs-Git: https://github.com/adrelanos/Whonix.git
+Vcs-Browser: https://github.com/adrelanos/Whonix.git
+
+Package: whonix-gateway
+Architecture: i386 amd64
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Contains Whonix configuration files, scripts,
+ icons and artwork.
