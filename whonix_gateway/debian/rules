@@ -1,6 +1,5 @@
 #!/usr/bin/make -f
 
-# This script uses debhelper by Joey Hess
 # export DH_VERBOSE=1
 
 
@@ -28,8 +27,12 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_prep
-	dh_installdirs usr/bin
+	dh_installdirs usr/local/bin usr/local/share
 
+	cp -rp usr debian/whonix-gateway/.
+	cp -rp ../whonix_shared/etc debian/whonix-gateway/.
+	cp -rp ../whonix_shared/usr debian/whonix-gateway/.
+	cp -rp ../whonix_shared/var debian/whonix-gateway/.
 	#Following is directory manipulation of makefile -- DO NOT EDIT
 	$(MAKE) -f Makefile.build install 
 
@@ -39,7 +42,7 @@ binary-arch:	build install
 	dh_testroot
 	#dh_installdocs		CONTRIBUTORS
 	#dh_installman		fdupes.1
-	dh_installchangelogs	CHANGES
+	#dh_installchangelogs	CHANGES
 	dh_strip
 	dh_compress
 	dh_fixperms
