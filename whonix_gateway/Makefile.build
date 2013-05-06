@@ -66,7 +66,7 @@ INSTALL_DATA    = $(INSTALL) -c -m 0644
 #####################################################################
 
 installdirs:
-	dh_installdirs usr/local/share/whonix/chroot-scrtipts \
+	dh_installdirs usr/local/share/whonix/chroot-scripts \
 		etc/apt/sources.list.d \
 		etc/dhcp/dhclient-enter-hooks.d \
 		etc/network \
