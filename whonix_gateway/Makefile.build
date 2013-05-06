@@ -1,5 +1,5 @@
 #
-# fdupes Makefile
+# Whonix_gateway build Makefile
 #
 
 #####################################################################
@@ -66,7 +66,35 @@ INSTALL_DATA    = $(INSTALL) -c -m 0644
 #####################################################################
 
 installdirs:
+	dh_installdirs usr/local/share/whonix/chroot-scrtipts \
+		etc/apt/sources.list.d \
+		etc/dhcp/dhclient-enter-hooks.d \
+		etc/network \
+		etc/sysctl.d \
+		etc/whonix_firewall.d \
+		usr/local/bin \
+		usr/local/share/whonix/chroot-scripts \
+		usr/local/share/whonix/kde/share/apps/plasma-desktop/init
 
 install: installdirs
-
-
+	echo Updated on May 05 2013
+	cp -p usr/local/share/whonix/chroot-scripts/70_clearnetuser debian/whonix-gateway/usr/local/share/whonix/chroot-scripts/70_clearnetuser
+	cp -p usr/local/share/whonix/chroot-scripts/70_desktopicons debian/whonix-gateway/usr/local/share/whonix/chroot-scripts/70_desktopicons
+	echo end of file_short	
+	cp -p etc/apt/sources.list.d/torproject.list debian/whonix-gateway/etc/apt/sources.list.d/torproject.list
+	cp -p etc/dhcp/dhclient-enter-hooks.d/nodnsupdate debian/whonix-gateway/etc/dhcp/dhclient-enter-hooks.d/nodnsupdate
+	cp -p etc/network/interfaces debian/whonix-gateway/etc/network/interfaces
+	cp -p etc/resolv.conf debian/whonix-gateway/etc/resolv.conf
+	cp -p etc/sysctl.d/whonix.conf debian/whonix-gateway/etc/sysctl.d/whonix.conf
+	cp -p etc/whonix_firewall.d/10_default debian/whonix-gateway/etc/whonix_firewall.d/10_default
+	cp -p usr/local/bin/arm debian/whonix-gateway/usr/local/bin/arm
+	cp -p usr/local/bin/dev_clearnet debian/whonix-gateway/usr/local/bin/dev_clearnet
+	cp -p usr/local/bin/leaktest debian/whonix-gateway/usr/local/bin/leaktest
+	cp -p usr/local/bin/whonix debian/whonix-gateway/usr/local/bin/whonix
+	cp -p usr/local/bin/whonix_firewall debian/whonix-gateway/usr/local/bin/whonix_firewall
+	cp -p usr/local/share/whonix/chroot-scripts/70_clearnetuser debian/whonix-gateway/usr/local/share/whonix/chroot-scripts/70_clearnetuser
+	cp -p usr/local/share/whonix/chroot-scripts/70_desktopicons debian/whonix-gateway/usr/local/share/whonix/chroot-scripts/70_desktopicons
+	cp -p usr/local/share/whonix/chroot-scripts/70_tor debian/whonix-gateway/usr/local/share/whonix/chroot-scripts/70_tor
+	cp -p usr/local/share/whonix/kde/share/apps/plasma-desktop/init/00-defaultLayout.js debian/whonix-gateway/usr/local/share/whonix/kde/share/apps/plasma-desktop/init/00-defaultLayout.js
+	cp -p usr/local/share/whonix/mountainmist.jpeg debian/whonix-gateway/usr/local/share/whonix/mountainmist.jpeg
+	cp -p usr/local/share/whonix/whonix_gateway debian/whonix-gateway/usr/local/share/whonix/whonix_gateway
