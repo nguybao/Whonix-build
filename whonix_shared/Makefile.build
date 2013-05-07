@@ -1,0 +1,65 @@
+#
+# Whonix_gateway build Makefile
+#
+
+#####################################################################
+# Standand User Configuration Section                               #
+#####################################################################
+
+#
+# PREFIX indicates the base directory used as the basis for the 
+# determination of the actual installation directories.
+# Suggested values are "/usr/local", "/usr", "/pkgs/fdupes-$(VERSION)"
+#
+PREFIX = /usr/local
+
+#
+# BIN_DIR indicates directory where program is to be installed. 
+# Suggested value is "$(PREFIX)/bin"
+#
+BIN_DIR = $(PREFIX)/bin
+
+#
+# MAN_DIR indicates directory where the fdupes man page is to be 
+# installed. Suggested value is "$(PREFIX)/man/man1"
+#
+MAN_BASE_DIR = $(PREFIX)/man
+MAN_DIR = $(MAN_BASE_DIR)/man1
+MAN_EXT = 1
+
+#
+# Required External Tools
+#
+
+INSTALL = install	# install : UCB/GNU Install compatiable
+#INSTALL = ginstall
+
+RM      = rm -f
+
+MKDIR   = mkdir -p
+#MKDIR   = mkdirhier 
+#MKDIR   = mkinstalldirs
+
+
+#
+# Make Configuration
+#
+CC = gcc
+COMPILER_OPTIONS = -Wall -O -g
+
+CFLAGS= $(COMPILER_OPTIONS) -I. -DVERSION=\"$(VERSION)\" $(EXTERNAL_MD5) $(EXPERIMENTAL_RBTREE) $(OMIT_GETOPT_LONG)
+
+INSTALL_PROGRAM = $(INSTALL) -c -m 0755
+INSTALL_DATA    = $(INSTALL) -c -m 0644
+
+#####################################################################
+# no need to modify anything beyond this point                      #
+#####################################################################
+
+installdirs:
+	dh_installdirs usr
+
+install: installdirs
+	cp -rp usr debian/whonix-shared/
+	cp -rp etc debian/whonix-shared/
+	cp -rp var debian/whonix-shared/
