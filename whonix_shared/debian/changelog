@@ -4,3 +4,4 @@ whonix-shared (1.0.0-1) unstable; urgency=low
   * Update to Standards-Version to 3.9.3 and debhelper to 9.
   * Add build-arch and build-indep targets; use dh_prep in rules file.
 
+ -- root <adrelanos at riseup dot net>  Wed, 08 May 2002 14:56:15 -0700

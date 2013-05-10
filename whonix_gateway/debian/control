@@ -10,6 +10,6 @@ Vcs-Browser: https://github.com/adrelanos/Whonix.git
 
 Package: whonix-gateway
 Architecture: i386 amd64
-Depends: ${misc:Depends}, ${shlibs:Depends}, bash
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Contains Whonix configuration files, scripts,
  icons and artwork.
