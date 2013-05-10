@@ -2,7 +2,7 @@ Source: whonix-workstation
 Section: main
 Priority: required
 Maintainer: adrelanos <adrelanos at riseup dot net>
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.9.3
 Homepage: http://whonix.sourceforge.net/
 Vcs-Git: https://github.com/adrelanos/Whonix.git
