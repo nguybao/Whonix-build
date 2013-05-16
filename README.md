@@ -16,3 +16,14 @@ then from each folder run:
 
     fakeroot debian/rules binary
 
+
+Using debuild to generate signed packages
+=========================================
+
+Instead of running fakeroot run debuild with you generated user id.
+
+    debuild -k 'Bao Nguyen <nguybao@yahoo.com>'
+
+If you are new to gpg you can generate you key as follow, but you need to run it only once:
+
+    gpg --gen-key
