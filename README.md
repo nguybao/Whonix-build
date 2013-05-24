@@ -20,7 +20,11 @@ then from each folder run:
 Using debuild to generate signed packages
 =========================================
 
-Instead of running fakeroot run debuild with you generated user id.
+The folder has to be renamed to package name.
+
+    whonix-gateway-1.0.0
+
+Instead of running fakeroot run debuild with your generated user id.
 
     debuild -k 'Bao Nguyen <nguybao@yahoo.com>'
 
